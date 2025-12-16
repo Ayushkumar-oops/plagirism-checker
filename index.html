@@ -1,26 +1,172 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Home | Plagiarism Checker</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4 rgb(red, green, blue);
+            min-height: 100vh;
+            font-family: 'Poppins', sans-serif;
+
+            /* 5-color soft gradient background */
+            background: linear-gradient(
+                135deg,
+                #fdfbfb,
+                #ebedee,
+                #dfe9f3,
+                #e0c3fc,
+                #fce1e4
+            );
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-        a {
-            padding-top: 500px;
+
+        .container {
+             background: linear-gradient(
+                135deg,
+               #fce1e4 
+               #e0c3fc, 
+                #dfe9f3,
+                #ebedee
+                #fdfbfb,
+            );
+;
+            backdrop-filter: blur(12px);
+            padding: 50px 60px;
+            border-radius: 20px;
             text-align: center;
-            color: #007BFF;
-            text-decoration: none;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
+            max-width: 500px;
+            width: 90%;
+            animation: fadeIn 1s ease-in-out;
         }
-        a:hover {
-            text-decoration: underline;
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .project-btn {
+            display: inline-block;
+            padding: 14px 38px;
+            font-size: 16px;
+            font-weight: 500;
+            text-decoration: none;
+            color: #ffffff;
+            background: linear-gradient(135deg, #6a85b6, #bac8e0);
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .project-btn:hover {
+            transform: translateY(-4px) scale(1.05);
+            background: linear-gradient(135deg, #89f7fe, #66a6ff);
+            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        footer {
+            margin-top: 25px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* ===========================
+           MEDIA QUERIES
+           =========================== */
+
+        /* Mobile devices */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 24px;
+            }
+
+            p {
+                font-size: 14px;
+            }
+
+            .container {
+                padding: 35px 25px;
+            }
+
+            .project-btn {
+                padding: 12px 30px;
+                font-size: 14px;
+            }
+        }
+
+        /* Tablets */
+        @media (min-width: 601px) and (max-width: 992px) {
+            h1 {
+                font-size: 28px;
+            }
+
+            .container {
+                padding: 45px 40px;
+            }
+        }
+
+        /* Large screens */
+        @media (min-width: 1200px) {
+            .container {
+                max-width: 550px;
+            }
+
+            h1 {
+                font-size: 34px;
+            }
         }
     </style>
 </head>
+
 <body>
-    <center><button><a href="./PlagiarismChecker.java">JAVA PROJECT</a></button></center>
+    
+
+    <div class="container">
+        <h1>Plagiarism Checker</h1>
+        <p>Java Mini Project | Text Similarity Detection</p>
+
+        <a href="./PlagiarismChecker.java" class="project-btn">
+            View Java Project
+        </a>
+
+        <footer>
+            Developed for Academic Project
+        </footer>
+    </div>
+
 </body>
 </html>
