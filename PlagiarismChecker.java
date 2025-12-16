@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 public class PlagiarismChecker {
 
-    /* ===================== DOCUMENT CLASS ===================== */
+    
     static class Document {
         String name;
         Map<String, Integer> termFreq = new HashMap<>();
@@ -42,7 +42,7 @@ public class PlagiarismChecker {
         }
     }
 
-    /* ===================== COSINE SIMILARITY ===================== */
+
     static double cosineSimilarity(double[] a, double[] b) {
         double dot = 0, normA = 0, normB = 0;
         for (int i = 0; i < a.length; i++) {
@@ -54,7 +54,6 @@ public class PlagiarismChecker {
         return dot / (Math.sqrt(normA) * Math.sqrt(normB));
     }
 
-    /* ===================== FILE LOADER ===================== */
     static List<Path> listTxtFiles(Path dir) throws IOException {
         try (var stream = Files.walk(dir)) {
             return stream.filter(Files::isRegularFile)
@@ -63,7 +62,6 @@ public class PlagiarismChecker {
         }
     }
 
-    /* ===================== IDF ===================== */
     static Map<String, Double> computeIdf(List<Document> docs, Set<String> vocab) {
         Map<String, Double> idf = new HashMap<>();
         int N = docs.size();
@@ -78,7 +76,6 @@ public class PlagiarismChecker {
         return idf;
     }
 
-    /* ===================== TF-IDF VECTOR ===================== */
     static double[] buildTfIdfVector(Document d, List<String> vocab, Map<String, Double> idf) {
         double[] vec = new double[vocab.size()];
         for (int i = 0; i < vocab.size(); i++) {
@@ -88,7 +85,6 @@ public class PlagiarismChecker {
         return vec;
     }
 
-    /* ===================== STOPWORDS ===================== */
     static Set<String> defaultStopwords() {
         return new HashSet<>(Arrays.asList(
                 "the","is","in","and","a","an","to","of","that","this","it",
@@ -96,7 +92,6 @@ public class PlagiarismChecker {
         ));
     }
 
-    /* ===================== MAIN ===================== */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         List<Document> documents = new ArrayList<>();
@@ -125,7 +120,6 @@ public class PlagiarismChecker {
                 continue;
             }
 
-            /* ================= OPTION 1 ================= */
             if (choice == 1) {
                 System.out.print("Enter directory path: ");
                 Path dir = Paths.get(scanner.nextLine());
@@ -152,13 +146,11 @@ public class PlagiarismChecker {
                 }
             }
 
-            /* ================= OPTION 2 ================= */
             else if (choice == 2) {
                 useStopwords = !useStopwords;
                 System.out.println("Stopwords are now " + (useStopwords ? "ON" : "OFF"));
             }
 
-            /* ================= OPTION 3 ================= */
             else if (choice == 3) {
                 if (documents.size() < 2) {
                     System.out.println("Load at least 2 documents!");
@@ -191,7 +183,6 @@ public class PlagiarismChecker {
                 }
             }
 
-            /* ================= OPTION 4 ================= */
             else if (choice == 4) {
                 System.out.print("Enter threshold (0–100): ");
                 try {
@@ -203,7 +194,6 @@ public class PlagiarismChecker {
                 }
             }
 
-            /* ================= OPTION 5 ================= */
             else if (choice == 5) {
                 if (documents.size() < 2) {
                     System.out.println("Compute similarity first!");
@@ -246,19 +236,16 @@ public class PlagiarismChecker {
                 }
             }
 
-            /* ================= OPTION 6 ================= */
             else if (choice == 6) {
                 loadedFiles.forEach(p -> System.out.println(p.toString()));
             }
 
-            /* ================= OPTION 7 ================= */
             else if (choice == 7) {
                 documents.clear();
                 loadedFiles.clear();
                 System.out.println("Cleared files!");
             }
 
-            /* ================= OPTION 8 ================= */
             else if (choice == 8) {
                 System.out.println("Exiting...");
                 break;
@@ -267,3 +254,4 @@ public class PlagiarismChecker {
         scanner.close();
     }
 }
+
